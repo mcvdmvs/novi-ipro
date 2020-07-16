@@ -36,12 +36,22 @@ public class AppTest {
   }
 
   @Test
+  public void USfirkin2liter() {
+    Firkin usf = new Firkin ("US_VOLUME_FIRKIN");
+    usf.setFirkin(2);
+
+    assertEquals(
+      68,
+      usf.getLiter());
+  }
+
+  @Test
   public void furlongage() {
     assertEquals(
       0.05f, 
       this.converter.furlongage(
-        1f,
-        20f));
+        new Firkin(1f),
+        new Furlong(20f)));
   }
 
   public void currentSpeed() {

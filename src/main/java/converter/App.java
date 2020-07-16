@@ -10,18 +10,6 @@ import converter.Fortnight;
 * Datum 16 Juli 2020
 */
 public class App {
-  /**
-  * @const firkin
-  * A firkin is a volume measurement of about 41 liters
-  */
-  final float firkin = 40.8233f;
-
-  /**
-  * @const fortnight
-  * A fortnight is a unit of time equal to 14 days or 1.1m seconds
-  */
-  final float fortnight = 1184400f;
-
   public static App main (String[] args) {
     return new App();
   }
@@ -50,8 +38,7 @@ public class App {
   * @return float firkin
   */
   public float liter2firkin(float liter) {
-    return liter / this.firkin;
-  
+    return Firkin.fromLiter(liter);  
   }
 
   /**
@@ -60,18 +47,28 @@ public class App {
   * @return float liter
   */
   public float firkin2liter(float firkin) {
-    return firkin * this.firkin;
+    return Firkin.toLiter(firkin);
   }
 
   /**
-  * Calculate furlongage
-  * How many firkin is used per furlong
-  * @param float firkin
-  * @param float furlong
+  * Calculate furlongage 
+  * How many firkin is used per furlong, like 1 liter to 20 km
+  * @param Firkin firkin
+  * @param Furlong furlong
   * @return float furlongage
   */
-  public float furlongage(float firkin, float furlong) {
-    return firkin / furlong;
+  public float furlongage(Firkin firkin, Furlong furlong) {
+    return firkin.getFirkin() / furlong.getFurlong();
+  }
+
+  /**
+  * How many furlongs on one firkin
+  * @param Furlong furlong
+  * @param Firkin firkin
+  * @return float furlongage
+  */
+  public float furlongage(Furlong furlong, Firkin firkin) {
+    return furlong.getFurlong() / firkin.getFirkin();
   }
 
   /**
@@ -80,7 +77,7 @@ public class App {
   * @return float fortnight
   */
   public float seconds2fortnight(float seconds){
-    return seconds / this.fortnight;
+    return Fortnight.fromSeconds(seconds);
   }
 
   /**
@@ -89,7 +86,7 @@ public class App {
   * @return float seconds
   */
   public float fortnight2seconds(float fortnight) {
-    return fortnight * this.fortnight;
+    return Fortnight.toSeconds(fortnight);
   }
 
   /**
