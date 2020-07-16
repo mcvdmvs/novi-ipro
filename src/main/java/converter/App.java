@@ -1,11 +1,6 @@
 package converter;
 
 /**
-* Use BigDecimal because of precision
-*/
-import java.math.BigDecimal;
-
-/**
 * @author Mick van der Most van Spijk
 * Leerlijn IPRO
 * Datum 16 Juli 2020
@@ -15,13 +10,13 @@ public class App {
   * @const furlong
   * A furlong is 201.168 SI meter
   */
-  final BigDecimal furlong = new BigDecimal(201.168);
+  final float furlong = 201.168f;
 
   /**
   * @const firkin
   * A firkin is a volume measurement of about 41 liters
   */
-  final BigDecimal firkin = new BigDecimal(40.8233);
+  final float firkin = 40.8233f;
 
   public static App main (String[] args) {
     return new App();
@@ -29,49 +24,49 @@ public class App {
 
   /** 
   * Convert a SI meter to a Furlong
-  * @param BigDecimal meter
-  * @return BigDecimal furlong
+  * @param float meter
+  * @return float furlong
   */
-  public BigDecimal meter2furlong(BigDecimal meter) {
-    return meter.divide(this.furlong);
+  public float meter2furlong(float meter) {
+    return meter / this.furlong;
   }
 
   /**
   * Convert Furlong to an SI meter
-  * @param BigDecimal furlong
-  * @return BigDecimal meter
+  * @param float furlong
+  * @return float meter
   */
-  public BigDecimal furlong2meter(BigDecimal furlong) {
-    return furlong.multiply(this.furlong);
+  public float furlong2meter(float furlong) {
+    return furlong * this.furlong;
   }
 
   /**
   * Convert a liter to a firkin
-  * @param BigDecimal liter
-  * @return BigDecimal firkin
+  * @param float liter
+  * @return float firkin
   */
-  public BigDecimal liter2firkin(BigDecimal liter) {
-    return liter.divide(this.firkin);
+  public float liter2firkin(float liter) {
+    return liter / this.firkin;
   }
 
   /**
   * Convert a firkin to a liter
-  * @param BigDecimal firkin
-  * @return BigDecimal liter
+  * @param float firkin
+  * @return float liter
   */
-  public BigDecimal firkin2liter(BigDecimal firkin) {
-    return firkin.multiply(this.firkin);
+  public float firkin2liter(float firkin) {
+    return firkin * this.firkin;
   }
 
   /**
   * Calculate furlongage
   * How many firkin is used per furlong
-  * @param BigDecimal firkin
-  * @param BigDecimal furlong
-  * @return BigDecimal furlongage
+  * @param float firkin
+  * @param float furlong
+  * @return float furlongage
   */
-  public BigDecimal furlongage(BigDecimal firkin, BigDecimal furlong) {
-    return firkin.divide(furlong);
+  public float furlongage(float firkin, float furlong) {
+    return firkin / furlong;
   }
 }
 
