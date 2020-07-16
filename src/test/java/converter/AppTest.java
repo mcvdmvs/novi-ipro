@@ -43,4 +43,11 @@ public class AppTest {
         1f,
         20f));
   }
+
+  public void currentSpeed() {
+    assertEquals(
+      "Your current speeds is 1.000000 furlong per fortnight, "
+      + "which equals to 0.000611 km/u",
+      this.converter.currentSpeedMessage(1, 1));
+  }
 }
