@@ -12,28 +12,89 @@ public class Firkin {
   */
   final float LITER = 40.8233f;
 
+  /**
+  * @var float
+  */
   private float firkin = 0;
 
-  public void Firkin() {
+  /**
+  * @var float
+  */
+  private float liter = 0;
+
+  /**
+  * Create a new and empty firkin
+  */
+  public Firkin() {
   }
 
-  public void Firkin(float firkin) {
+  /**
+  * Create a firkin with volume
+  * @param float firkin
+  */
+  public Firkin(float firkin) {
+    this.setFirkin(firkin);
+  }
+
+  /**
+  * Get liter
+  * @return float liter
+  */
+  public float getLiter() {
+    return this.liter;
+  }
+
+  /**
+  * Set liter and convert to firkin while we on it
+  * @param float liter
+  */
+  public void setLiter(float liter) {
+    this.liter = liter;
+    this.firkin = this.convertFromLiter(liter);
+  }
+
+  /**
+  * Get firkin
+  * @return float firkin
+  */
+  public float getFirkin() {
+    return this.firkin;
+  }
+
+  /**
+  * Set firkin
+  * @param float firkin
+  */
+  public void setFirkin(float firkin) {
     this.firkin = firkin;
+    this.liter = this.convertToLiter(firkin);
   }
 
   /**
   * Convert a liter to a firkin
   * @param float liter
   */
-  public void fromLiter(float liter) {
-    this.firkin = liter / this.LITER;  
+  private float convertFromLiter(float liter) {
+    return liter / this.LITER;  
   }
 
   /**
   * Convert a firkin to a liter
   * @return float liter
   */
-  public float toLiter(float firkin) {
+  private float convertToLiter(float firkin) {
     return firkin * this.LITER;
+  }
+
+  public static float fromLiter(float liter) {
+    Firkin f = new Firkin();
+    f.setLiter(liter);
+
+    return f.getFirkin();
+  }
+
+  public static float toLiter(float firkin) {
+    Firkin f = new Firkin(firkin);
+    return f.getLiter();
   }
 }

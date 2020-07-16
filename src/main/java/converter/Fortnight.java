@@ -9,32 +9,91 @@ public class Fortnight {
   /**
   * @const fortnight
   * A fortnight is a unit of time equal to 14 days or 1.1m seconds
+  * and not a battle royal game like many think
   */
   final float SECONDS = 1184400f;
 
+  /**
+  * @var float
+  */
   private float fortnight = 0;
 
-  public void Fortnight() {
+  /**
+  * @var seconds
+  */
+  private float seconds = 0;
+
+  /**
+  * Create a new fortnight with no lenght
+  */
+  public Fortnight() {
   }
 
-  public void Fortnight(float fortnight) {
+  /**
+  * Create a new fortnight with a length
+  * @param float fortnight
+  */
+  public Fortnight(float fortnight) {
+    this.setFortnight(fortnight);
+  }
+
+  /**
+  * Get seconds
+  */
+  public float getSeconds() {
+    return this.seconds;
+  }
+
+  /**
+  * Set seconds and fortnight
+  * @param seconds
+  */
+  public void setSeconds(float seconds) {
+    this.seconds = seconds;
+    this.fortnight = this.convertFromSeconds(seconds);
+  }
+
+  /**
+  * get fortnight
+  */
+  public float getFortnight() {
+    return this.fortnight;
+  }
+
+  /**
+  * Set fortnight
+  * @param float fortnight
+  */
+  public void setFortnight(float fortnight) {
     this.fortnight = fortnight;
+    this.seconds = this.convertToSeconds(fortnight);
   }
 
   /**
   * Convert seconds to fortnight
   * @param float seconds
   */
-  public void fromSeconds(float seconds){
-    this.fortnight = seconds / this.SECONDS;
+  public float convertFromSeconds(float seconds){
+    return seconds / this.SECONDS;
   }
 
   /**
   * Convert fortnight to second
   * @return float seconds
   */
-  public float toSeconds() {
-    return this.fortnight * this.SECONDS;
+  public float convertToSeconds(float fortnight) {
+    return fortnight * this.SECONDS;
+  }
+
+  public static float fromSeconds(float seconds) {
+    Fortnight f = new Fortnight();
+    f.setSeconds(seconds);
+    return f.getFortnight();
+  }
+
+  public static float toSeconds(float fortnight) {
+    Fortnight f = new Fortnight(fortnight);
+    return f.getSeconds();
   }
 }
 
