@@ -13,8 +13,16 @@ public class AppTest {
     BigDecimal(201.168)));
   }
 
+  @Test
   public void furlong2meter() {
     assertEquals(new BigDecimal(201.168), this.converter.furlong2meter(new
     BigDecimal(1)));
+  }
+ 
+  @Test
+  public void liter2firkin() {
+    // there should be 40.8233 liter in a firkin
+    assertEquals(new BigDecimal(1), this.converter.liter2firkin(new
+    BigDecimal(40.8233)));
   }
 }
