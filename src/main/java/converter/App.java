@@ -10,8 +10,25 @@ import converter.Fortnight;
 * Datum 16 Juli 2020
 */
 public class App {
+  private boolean running = false;
+
   public static App main (String[] args) {
     return new App();
+  }
+
+  public App () {
+    this.running = true;
+  }
+
+  /**
+   * Method to show working of if/else
+   */
+  public boolean isRunning() {
+    if (this.running) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /** 

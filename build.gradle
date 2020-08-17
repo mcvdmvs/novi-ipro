@@ -2,6 +2,7 @@ plugins {
   id 'application'
 }
 
+mainClassName = 'converter.App'
 repositories {
   mavenCentral()
 }
