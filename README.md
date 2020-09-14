@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mcvdmvs/novi-ipro.svg?branch=master)](https://travis-ci.com/mcvdmvs/novi-ipro) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mcvdmvs_novi-ipro&metric=alert_status)](https://sonarcloud.io/dashboard?id=mcvdmvs_novi-ipro)
+
 # novi-ipro
 Repo voor inleiding programmeren opdracht
 
