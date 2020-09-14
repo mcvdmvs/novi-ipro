@@ -7,13 +7,33 @@ repositories {
   mavenCentral()
 }
 
+configurations {
+  // trick to add dependencies for the runtime
+  runtimeDeps
+}
+
 dependencies {
   // testImplementation 'junit:junit:4.12'
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
   testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+  implementation 'commons-cli:commons-cli:1.4'
+  runtimeDeps 'commons-cli:commons-cli:1.4'
 }
 
 test {
   useJUnitPlatform()
+}
+
+jar {
+  from {
+    configurations.runtimeDeps.collect {
+      it.isDirectory() ? it: zipTree(it) 
+    }
+  }
+  manifest {
+    attributes (
+      'Main-Class': 'converter.App'
+    )
+  }
 }
 

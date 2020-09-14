@@ -22,16 +22,16 @@ public class AppTest {
  
   @Test
   public void liter2firkin() {
-    // there should be 40.8233 liter in a firkin
+    // there should be 40.9148269 liter in a firkin
     assertEquals(
       1f, 
-      this.converter.liter2firkin(40.8233f));
+      this.converter.liter2firkin(40.9148269f));
   }
 
   @Test
   public void firkin2liter() {
     assertEquals(
-      40.8233f, 
+      40.9148269f, 
       this.converter.firkin2liter(1f));
   }
 

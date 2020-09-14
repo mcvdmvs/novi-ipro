@@ -4,6 +4,8 @@ import converter.Furlong;
 import converter.Firkin;
 import converter.Fortnight;
 
+import org.apache.commons.cli.*;
+
 /**
 * @author Mick van der Most van Spijk
 * Leerlijn IPRO
@@ -12,8 +14,55 @@ import converter.Fortnight;
 public class App {
   private boolean running = false;
 
-  public static App main (String[] args) {
-    return new App();
+  /**
+   * Start application and read command line option to convert a parameter
+   * to FFF
+   */
+  public static void main (String[] args) {
+    Options options = new Options();
+    options.addOption(new Option("help", "This message"));
+    
+    options.addOption(new Option("firkin", true, "Convert Firkins to liters"));
+    options.addOption(new Option("furlong", true, "Convert Furlongs to meters"));
+    options.addOption(new Option("fortnight", true, "Convert Fortnight to seconds"));
+
+    CommandLineParser parser = new DefaultParser();
+    try {
+      CommandLine line = parser.parse(options, args);
+
+      if (line.hasOption("help")) {
+        HelpFormatter formatter = new HelpFormatter();
+        formatter.printHelp("converter", options);
+	return;
+      } 
+      
+      if (line.hasOption("firkin")) {
+	Float firkin_value = Float.parseFloat(line.getOptionValue("firkin"));
+	Float liter = App.firkin2liter(firkin_value);
+	String f2l = String.format("%.2f firkin is equal to %.2f liter", firkin_value, liter);
+	System.out.println(f2l);
+      }
+
+      if (line.hasOption("furlong")) {
+        Float furlong_value = Float.parseFloat(line.getOptionValue("furlong"));
+	Float meter = App.furlong2meter(furlong_value);
+	String f2m = String.format("%.2f furlong is equal to %.2f meter", furlong_value, meter);
+	System.out.println(f2m);
+      
+      }
+
+      if (line.hasOption("fortnight")) {
+	Float fortnight_value = Float.parseFloat(line.getOptionValue("fortnight"));
+	Float seconds = App.fortnight2seconds(fortnight_value);
+	String f2s = String.format("%.2f fortnight is equal to %.2f seconds", fortnight_value, seconds);
+	System.out.println(f2s);
+      }
+
+    } catch (ParseException e) {
+      System.err.println("Parsing of command line options failed: " +
+		      e.getMessage());
+    }
+
   }
 
   public App () {
@@ -36,7 +85,7 @@ public class App {
   * @param float meter
   * @return float furlong
   */
-  public float meter2furlong(float meter) {
+  public static float meter2furlong(float meter) {
     return Furlong.fromMeter(meter);
   }
 
@@ -45,7 +94,7 @@ public class App {
   * @param float furlong
   * @return float meter
   */
-  public float furlong2meter(float furlong) {
+  public static float furlong2meter(float furlong) {
     return Furlong.toMeter(furlong);
   }
 
@@ -54,7 +103,7 @@ public class App {
   * @param float liter
   * @return float firkin
   */
-  public float liter2firkin(float liter) {
+  public static float liter2firkin(float liter) {
     return Firkin.fromLiter(liter);  
   }
 
@@ -63,7 +112,7 @@ public class App {
   * @param float firkin
   * @return float liter
   */
-  public float firkin2liter(float firkin) {
+  public static float firkin2liter(float firkin) {
     return Firkin.toLiter(firkin);
   }
 
@@ -74,7 +123,7 @@ public class App {
   * @param Furlong furlong
   * @return float furlongage
   */
-  public float furlongage(Firkin firkin, Furlong furlong) {
+  public static float furlongage(Firkin firkin, Furlong furlong) {
     return firkin.getFirkin() / furlong.getFurlong();
   }
 
@@ -84,7 +133,7 @@ public class App {
   * @param Firkin firkin
   * @return float furlongage
   */
-  public float furlongage(Furlong furlong, Firkin firkin) {
+  public static float furlongage(Furlong furlong, Firkin firkin) {
     return furlong.getFurlong() / firkin.getFirkin();
   }
 
@@ -93,7 +142,7 @@ public class App {
   * @param float seconds
   * @return float fortnight
   */
-  public float seconds2fortnight(float seconds){
+  public static float seconds2fortnight(float seconds){
     return Fortnight.fromSeconds(seconds);
   }
 
@@ -102,7 +151,7 @@ public class App {
   * @param float fortnight
   * @return float seconds
   */
-  public float fortnight2seconds(float fortnight) {
+  public static float fortnight2seconds(float fortnight) {
     return Fortnight.toSeconds(fortnight);
   }
 

@@ -8,11 +8,11 @@ package converter;
 * A Firkin has three different values:
 * - US unit of dry measure 1 firkin = 9 US gallons = 34 liters
 * - UK unit of weight 1 firkin = 56 pounds = 25 kilogram
-* - UK unit of volume 1 firkin = 0.25 barrel = 41 liter
+* - UK unit of volume 1 firkin = 0.25 barrel = 41 liter -> 40.914...
 */
 public class Firkin {
   final float US_VOLUME_FIRKIN = 34f;
-  final float UK_VOLUME_FIRKIN = 40.8233f;
+  final float UK_VOLUME_FIRKIN = 40.9148269f;
   final float UK_WEIGHT_FIRKIN = 25f;
 
   /**
