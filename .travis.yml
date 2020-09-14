@@ -7,5 +7,5 @@ before_install:
   gradle wrapper
 
 script:
-  - ./gradlew clean build
+  - ./gradlew clean build sonarqube
 

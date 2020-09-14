@@ -1,5 +1,6 @@
 plugins {
   id 'application'
+  id "org.sonarqube" version "2.7.1"
 }
 
 check.doFirst {
@@ -38,6 +39,12 @@ jar {
     attributes (
       'Main-Class': 'converter.App'
     )
+  }
+}
+
+sonarqube {
+  properties {
+    property "sonar.sourceEncoding", "UTF-8"
   }
 }
 
