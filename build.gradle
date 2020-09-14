@@ -1,6 +1,6 @@
 plugins {
   id 'application'
-  id "org.sonarqube" version "2.7.1"
+  id "org.sonarqube" version "3.0"
 }
 
 check.doFirst {
@@ -45,6 +45,9 @@ jar {
 sonarqube {
   properties {
     property "sonar.sourceEncoding", "UTF-8"
+    property "sonar.projectKey", "mcvdmvs_novi-irpo"
+    property "sonar.organization", "mcvdmvs"
+    property "sonar.host.url", "https://sonarcloud.io"
   }
 }
 
