@@ -3,6 +3,9 @@ install: skip
 
 jdk: openjdk11
 
+before_install:
+  gradle -b wrapper.gradle wrapper
+
 script:
   - ./gradlew clean build
 

@@ -2,6 +2,10 @@ plugins {
   id 'application'
 }
 
+check.doFirst {
+  println "Running gradle v${project.gradle.gradleVersion}"
+}
+
 mainClassName = 'converter.App'
 repositories {
   mavenCentral()
