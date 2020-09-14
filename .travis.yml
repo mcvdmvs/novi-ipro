@@ -1,16 +1,8 @@
 language: java
 install: skip
 
-os:linux
 jdk: openjdk11
 
 script:
   - ./gradlew clean build --scan s
 
-addons:
-  sonarcloud:
-    organization: "mcvdmvs"
-    token:
-      secure: mcvdmvs_novi-ipro
-script:
-  - sonar-scanner
