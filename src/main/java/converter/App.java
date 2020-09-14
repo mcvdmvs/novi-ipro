@@ -5,6 +5,7 @@ import converter.Firkin;
 import converter.Fortnight;
 
 import org.apache.commons.cli.*;
+import java.util.*;
 
 /**
 * @author Mick van der Most van Spijk
@@ -25,6 +26,7 @@ public class App {
     options.addOption(new Option("firkin", true, "Convert Firkins to liters"));
     options.addOption(new Option("furlong", true, "Convert Furlongs to meters"));
     options.addOption(new Option("fortnight", true, "Convert Fortnight to seconds"));
+    options.addOption(new Option("what", "Show what the forgotten measurements are according to Wikipedia"));
 
     CommandLineParser parser = new DefaultParser();
     try {
@@ -34,6 +36,10 @@ public class App {
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("converter", options);
 	return;
+      }
+
+      if (line.hasOption("what")) {
+	App.getNonIsoMeasurements();
       } 
       
       if (line.hasOption("firkin")) {
@@ -176,5 +182,19 @@ public class App {
       kmu);
   }
 
+  /**
+   * Output an explanation about the weird measurements we use in this app
+   * It outputs direct to System out and takes no parameters
+   */
+  public static void getNonIsoMeasurements() {
+    Map<String, String> measurements = new HashMap<String, String>();
+    measurements.put("Firkin", "A firkin is a unit of volume or mass used in several situations. Its etymology is likely to be from the Middle English ferdekyn, probably from the Middle Dutch diminutive of vierde 'fourth' (a firkin originally contained a quarter of a barrel).");
+    measurements.put("Furlong", "A furlong is a measure of distance in imperial units and U.S. customary units equal to one eighth of a mile, equivalent to 660 feet, 220 yards, 40 rods, 10 chains or approximately 201 meters.");
+    measurements.put("Fortnight", "A fortnight is a unit of time equal to 14 days (2 weeks). The word derives from the Old English term fēowertyne niht, meaning \"fourteen night\".");
+
+    for (Map.Entry measurement: measurements.entrySet()) {
+      System.out.println(String.format("%s: %s", measurement.getKey(), measurement.getValue()));
+    }
+  }
 }
 

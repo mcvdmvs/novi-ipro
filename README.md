@@ -52,3 +52,5 @@ Voor ieder criterium kun je een cijfer krijgen tussen de 1 en 10, afhankelijk va
 5. Er wordt in de applicatie tenminste 1 keuzestructuur correct toegepast. Voor het nesten van een keuzestructuur, of het toepassen van twee verschillende soorten keuzestructuren kan een cijfer hoger dan 8 gegeven worden. Wanneer een keuzestructuur ontbreekt of niet correct werkt, kan er geen voldoende gegeven worden voor dit onderdeel. 15%
 6. Er wordt correct gebruik gemaakt van tenminste 1 verzameling waar met een lus doorheen gelust wordt. Wanneer er twee verschillende type verzamelingen of meerdere lustypen gebruikt worden, kan er een cijfer hoger dan 8 gegeven worden . Wanneer er geen verzameling gebruikt wordt, of de verzameling niet werkt, kan er geen voldoende gegeven worden voor dit onderdeel. 20%
 Totaal 100%
+
+#
